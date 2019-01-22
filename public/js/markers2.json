@@ -1,0 +1,20 @@
+[
+    {
+        "id": "marker-1",
+        "center": [50.57168146, 36.55696392],
+        "icon": "<i class='fa fa-home'></i>",
+		"title": "Участок №1",
+		"desc": "Белгородская обл., Архиерейская Роща",
+		"price": "1 500000 ₽",
+		"image": "images/feature-properties/fp-1.jpg"
+	},
+	{
+		"id": "marker-1",
+		"center": [50.44329441, 36.82870388],
+		"icon": "<i class='fa fa-home'></i>",
+		"title": "Участок №2",
+		"desc": "Шебекинская обл., Архиерейская Роща",
+		"price": "1 500000 ₽",
+		"image": "images/feature-properties/fp-1.jpg"
+	}
+]
