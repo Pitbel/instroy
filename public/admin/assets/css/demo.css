@@ -1,0 +1,210 @@
+@media (min-width: 992px){
+    .typo-line{
+        padding-left: 140px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .typo-line .category{
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0px;
+        position: absolute;
+    }
+}
+
+.icon-section {
+	margin: 0 0 3em;
+	clear: both;
+	overflow: hidden;
+}
+.icon-container {
+	width: 240px;
+	padding: .7em 0;
+	float: left;
+	position: relative;
+	text-align: left;
+}
+.icon-container [class^="ti-"],
+.icon-container [class*=" ti-"] {
+	color: #000;
+	position: absolute;
+	margin-top: 3px;
+	transition: .3s;
+}
+.icon-container:hover [class^="ti-"],
+.icon-container:hover [class*=" ti-"] {
+	font-size: 2.2em;
+	margin-top: -5px;
+}
+.icon-container:hover .icon-name {
+	color: #000;
+}
+.icon-name {
+	color: #aaa;
+	margin-left: 35px;
+	font-size: .8em;
+	transition: .3s;
+}
+.icon-container:hover .icon-name {
+	margin-left: 45px;
+}
+
+.places-buttons .btn{
+    margin-bottom: 30px
+}
+.sidebar .nav > li.active-pro{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+.sidebar .nav > li.active-pro a{
+    background: rgba(255, 255, 255, 0.14);
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.table-upgrade td:nth-child(2),
+.table-upgrade td:nth-child(3){
+    text-align: center;
+}
+
+.lands-list-ul {
+	display: inline-flex;
+	align-items: center;
+	justify-content: left;
+	list-style: none;
+	width: 100%;
+	padding-left: 0px;
+}
+.lands-list-ul li {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 0 !important;
+	margin-left:1em;
+	padding: .5em !important;
+	border-radius: 2px;
+	background-color: #eee;
+}
+
+.lands-list-ul img {
+	width: 25px;
+	margin-right: .5em;
+}
+
+#map-contact {
+	 width: 100%;
+	 height: 400px;
+	cursor: crosshair;
+ }
+.leaflet-div-icon, .map-marker {
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+	transition: all .15s linear;
+	z-index: 10;
+}
+.leaflet-div-icon, .map-marker {
+	border-radius: 50%;
+	cursor: pointer;
+	position: relative;
+	-webkit-transition: all .15s linear;
+	transition: all .15s linear;
+	z-index: 10;
+}
+.leaflet-div-icon, .map-marker {
+	border: 5px solid #1ABC9C !important;
+}
+#map-contact .fa {
+	color: #1ABC9C;
+}
+.leaflet-div-icon .fa, .map-marker .fa {
+	color: #000;
+	font-size: 23px;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	z-index: 13;
+}
+
+.leaflet-div-icon:before, .map-marker:before {
+	border: 4px solid transparent;
+	border-width: 10px 8px;
+	border-top-color: #1ABC9C;
+	bottom: -24px;
+	height: 0;
+	content: '';
+	display: block;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+	width: 0;
+	z-index: 11;
+}
+
+.card .header.with-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+.card .header.with-button h4 {
+	display: inline-block;
+}
+
+.card .header.with-button button {
+	float: right;
+}
+
+.file-input {
+	display: inline-block;
+	text-align: left;
+	background: #fff;
+	padding: 16px;
+	position: relative;
+	border-radius: 3px;
+}
+
+.file-input > [type='file'] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.file-input > .button {
+	display: inline-block;
+	cursor: pointer;
+	background: #eee;
+	padding: 8px 16px;
+	border-radius: 2px;
+	margin-right: 8px;
+}
+
+.file-input:hover > .button {
+	background: #1ABC9C;
+	color: white;
+}
+
+.file-input > .label {
+	color: #333;
+	white-space: nowrap;
+	opacity: .3;
+}
+
+.file-input.-chosen > .label {
+	opacity: 1;
+}
+
+.land-edit-images {
+	display: inline-block;
+	margin:1em;
+	width: 250px;
+}

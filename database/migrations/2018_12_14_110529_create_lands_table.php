@@ -22,6 +22,7 @@ class CreateLandsTable extends Migration
             $table->string('area', 191);
             $table->integer('land_category_id');
             $table->string('address', 191);
+            $table->string('geo_location', 191);
             $table->integer('assignment_id');
             $table->text('description');
             $table->text('short_description');

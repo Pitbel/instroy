@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Assignment;
+use App\Land;
 use Illuminate\Http\Request;
 
 class AjaxController extends Controller
@@ -23,5 +24,14 @@ class AjaxController extends Controller
                 ->toJson();
 
         return abort(404);
+    }
+
+    public function getJsonDataMap(Request $request)
+    {
+        if ($request->ajax()) {
+            return Land::getLandsForMap();
+        } else {
+            return abort(404);
+        }
     }
 }

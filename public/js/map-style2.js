@@ -17,8 +17,9 @@ $(document).ready(function () {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        $.ajax('js/markers2.json', {
+        $.ajax('ajax/getJsonDataMainMap', {
             success: function (markers) {
+                console.log(markers);
                 $.each(markers, function (index, value) {
                     var icon = L.divIcon({
                         html: value.icon,
@@ -33,7 +34,7 @@ $(document).ready(function () {
 
                     marker.bindPopup(
                         '<div class="listing-window-image-wrapper">' +
-                        '<a href="properties-details.html">' +
+                        '<a href="/land/'+value.land_id+'">' +
                         '<div class="listing-window-image" style="background-image: url(' + value.image + ');"></div>' +
                         '<div class="listing-window-content">' +
                         '<div class="info">' +

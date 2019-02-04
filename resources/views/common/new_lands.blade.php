@@ -30,7 +30,7 @@
                                 <div class="homes-tag button alt featured">{{ $land->category->name }}</div>
                                 <div class="homes-tag button alt sale">{{ $land->type->name }}</div>
                                 <div class="homes-price">{{ $land->locality->name }}</div>
-                                <img src="{{ isset($land->images[0]) ? asset($land->images[0]->img_link) : asset('images/lands/placeholder.jpg') }}" alt="home-1" class="img-responsive">
+                                <img src="{{ isset($land->images[0]) ? asset($land->images[0]->img_link) : asset('images/lands/placeholder.jpg') }}" alt="{{ $land->name }}" class="img-responsive">
                         </div>
                     </div>
                     <!-- homes content -->

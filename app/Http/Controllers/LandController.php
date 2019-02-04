@@ -80,7 +80,7 @@ class LandController extends Controller
         if ($request->has('price_from') && $request->has('price_to'))
             $lands->whereBetween('price', [$request->price_from, $request->price_to]);
 
-        $lands = $lands->paginate(10);
+        $lands = $lands->orderBy('created_at', 'desc')->paginate(10);
 
         //get min and max price
         $priceRange = DB::table('lands')
