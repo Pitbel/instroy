@@ -10,49 +10,41 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <!-- Image Box -->
-                <a href="properties-right-sidebar.html" class="img-box hover-effect">
-                    <img src="images/popular-places/1.jpg" class="img-responsive" alt="">
-                    <!-- Badge -->
-                    <div class="listing-badges">
-                        <span class="featured">Featured</span>
-                    </div>
+                <a href="/lands?region=1" class="img-box hover-effect">
+                    <img src="{{ asset('images/popular-places/belgorod.jpg') }}" class="img-responsive" alt="">
                     <div class="img-box-content visible">
-                        <h4>New York City </h4>
-                        <span>203 Properties</span>
+                        <h4>Белгородский район </h4>
+                        <span>{{ $landCount['belgorod'] }} {{ trans_choice('front.lands_count', $landCount['belgorod']) }}</span>
                     </div>
                 </a>
             </div>
             <div class="col-lg-8 col-md-6">
                 <!-- Image Box -->
-                <a href="properties-right-sidebar.html" class="img-box hover-effect">
-                    <img src="images/popular-places/2.jpg" class="img-responsive" alt="">
+                <a href="/lands?region=3" class="img-box hover-effect">
+                    <img src="{{ asset('images/popular-places/shebekino.jpg') }}" class="img-responsive" alt="">
                     <div class="img-box-content visible">
-                        <h4>Los Angeles</h4>
-                        <span>307 Properties</span>
+                        <h4>Шебекинский район</h4>
+                        <span>{{ $landCount['shbk'] }} {{ trans_choice('front.lands_count', $landCount['shbk']) }}</span>
                     </div>
                 </a>
             </div>
             <div class="col-lg-8 col-md-6">
                 <!-- Image Box -->
-                <a href="properties-right-sidebar.html" class="img-box hover-effect no-mb">
-                    <img src="images/popular-places/3.jpg" class="img-responsive" alt="">
+                <a href="/lands?region=5" class="img-box hover-effect no-mb">
+                    <img src="{{ asset('images/popular-places/stroitel.jpg') }}" class="img-responsive" alt="">
                     <div class="img-box-content visible">
-                        <h4>San Francisco </h4>
-                        <span>409 Properties</span>
+                        <h4>Яковлевский район</h4>
+                        <span>{{ $landCount['stroitel'] }} {{ trans_choice('front.lands_count', $landCount['stroitel']) }}</span>
                     </div>
                 </a>
             </div>
             <div class="col-lg-4 col-md-6">
                 <!-- Image Box -->
-                <a href="properties-right-sidebar.html" class="img-box hover-effect no-mb x3">
-                    <img src="images/popular-places/4.jpg" class="img-responsive" alt="">
-                    <!-- Badge -->
-                    <div class="listing-badges">
-                        <span class="featured">Featured</span>
-                    </div>
+                <a href="/lands?region=6" class="img-box hover-effect no-mb x3">
+                    <img src="{{ asset('images/popular-places/koro4a.jpg') }}" class="img-responsive" alt="">
                     <div class="img-box-content visible">
-                        <h4>Miami</h4>
-                        <span>507 Properties</span>
+                        <h4>Корочанский район</h4>
+                        <span>{{ $landCount['korocha'] }} {{ trans_choice('front.lands_count', $landCount['korocha']) }}</span>
                     </div>
                 </a>
             </div>

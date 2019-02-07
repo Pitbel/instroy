@@ -54,16 +54,34 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li {{ request()->route()->uri == 'admin/dashboard' ? 'class=active' : '' }}>
                     <a href="/admin/dashboard">
                         <i class="ti-panel"></i>
                         <p>Сводка</p>
                     </a>
                 </li>
-                <li>
+                <li {{ request()->route()->uri == 'admin/lands' ? 'class=active' : '' }}>
                     <a href="/admin/lands">
                         <i class="ti-layout"></i>
                         <p>Участки</p>
+                    </a>
+                </li>
+                <li {{ request()->route()->uri == 'admin/news' ? 'class=active' : '' }}>
+                    <a href="/admin/news">
+                        <i class="fa fa-newspaper-o "></i>
+                        <p>Новости</p>
+                    </a>
+                </li>
+                <li {{ request()->route()->uri == 'admin/regions' ? 'class=active' : '' }}>
+                    <a href="/admin/regions">
+                        <i class="fa fa-tree"></i>
+                        <p>Районы</p>
+                    </a>
+                </li>
+                <li {{ request()->route()->uri == 'admin/localities' ? 'class=active' : '' }}>
+                    <a href="/admin/localities">
+                        <i class="fa fa-building-o"></i>
+                        <p>Населенные пункты</p>
                     </a>
                 </li>
             </ul>

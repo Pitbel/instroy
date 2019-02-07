@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\News;
 use Illuminate\Http\Request;
+use Meta;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        Meta::set('title', 'Новости - продажа земли в Белгороде и Белгородской области');
+        Meta::set('description', 'Новости - "ООО Инстрой" - Недвижимость в Белгороде. Земля под строительство ИЖС, усадьбы, торговых объектов, кооммерческого назначения');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::orderBy('created_at', 'desc')->paginate(9);
+
+        return view('blog.list', compact('news'));
     }
 
     /**
@@ -48,6 +57,8 @@ class NewsController extends Controller
     {
         $news = News::findOrFail($id);
         $recentNews = News::getRecentNews(5);
+
+        Meta::set('title', $news->title. ' - Новости - Недвижимость в Белгороде');
 
         return view('blog.single', compact('news', 'recentNews'));
     }

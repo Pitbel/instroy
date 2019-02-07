@@ -7,14 +7,25 @@ use App\Land;
 use App\LandRegion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Meta;
 
 class LandController extends Controller
 {
+    public function __construct()
+    {
+        Meta::set('title', 'Список всех участков - Недвижимость в Белгороде');
+        Meta::set('description', '"ООО Иистрой" - Недвижимость в Белгороде. Земля под строительство ИЖС, усадьбы, торговых объектов, кооммерческого назначения');
+    }
+
     public function index($id)
     {
         $land = Land::findOrFail($id);
 
-        return view('lands.single', compact('land'));
+        $similarLands = Land::getSimilarLandFromCategory(3);
+
+        Meta::set('title', $land->name . ' - Недвижимость в Белгороде');
+
+        return view('lands.single', compact('land', 'similarLands'));
     }
 
     public function show($slug, Request $request)

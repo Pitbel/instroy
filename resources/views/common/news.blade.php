@@ -10,13 +10,13 @@
                 @foreach($news as $item)
                 <div class="col-xl-4 col-md-6 col-xs-12">
                     <div class="news-item">
-                        <a href="{{ route('blog-single', $item->id) }}" class="news-img-link">
+                        <a href="{{ route('news-single', $item->id) }}" class="news-img-link">
                             <div class="news-item-img">
                                 <img class="img-responsive" src="{{ $item->img }}" alt="blog image">
                             </div>
                         </a>
                         <div class="news-item-text">
-                            <a href="{{ route('blog-single', $item->id) }}"><h3>{{ $item->title }}</h3></a>
+                            <a href="{{ route('news-single', $item->id) }}"><h3>{{ $item->title }}</h3></a>
                             <div class="dates">
                                 <span class="date">{{ ($item->created_at->diff(now())->days < 1) ? $item->created_at->diffForHumans() : $item->created_at->format('d.m.Y') }}</span>
                             </div>
@@ -24,7 +24,7 @@
                                 <p>{{ $item->short_text }}</p>
                             </div>
                             <div class="news-item-bottom">
-                                <a href="blog-details.html" class="news-link">Подробнее...</a>
+                                <a href="{{ route('news-single', $item->id) }}" class="news-link">Подробнее...</a>
                                 <div class="admin">
                                     <p>ООО «Инстрой»</p>
                                 </div>

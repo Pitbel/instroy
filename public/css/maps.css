@@ -13,6 +13,20 @@
 	position: absolute;
 	z-index: 0;
 }
+.map-filter {
+	display: flex;
+	top:1em;
+	left:3em;
+	position: absolute;
+	z-index: 999;
+}
+.map-filter .nice-select {
+	line-height: 37px;
+	border: solid 1px #1abc9c;
+}
+.map-filter .nice-select .option:hover {
+	background-color: #1abc9c !important;
+}
 .info-box-img {
 	width: 180px;
 	margin-right: 20px;

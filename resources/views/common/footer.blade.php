@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="netabout">
-                        <a href="index.html" class="logo">
-                            <img src="{{ asset('css/colors/icons/pink/logo-footer.svg') }}" alt="Logo">
+                        <a href="/" class="logo">
+                            <img style="width: 100px; border-radius: 8px;" src="{{ asset('images/logo.jpg') }}" alt="Logo">
                         </a>
                         <p>ООО «Инстрой» — компания работающая в сфере загородного коттеджного строительства. Мы готовы предложить нашим клиентам земельные участки в живописных районах Белгородской области как с подрядом, так и без подряда.</p>
-                        <a href="about.html" class="btn btn-secondary">Подробнее...</a>
+                        <a href="/company" class="btn btn-secondary">Подробнее...</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -17,10 +17,10 @@
                         <h3>Навигация</h3>
                         <div class="nav-footer">
                             <ul>
-                                <li><a href="index.html">О нас</a></li>
+                                <li><a href="/company">О нас</a></li>
                             </ul>
                             <ul class="nav-right">
-                                <li><a href="properties-right-sidebar.html">Новости</a></li>
+                                <li><a href="/news">Новости</a></li>
                             </ul>
                         </div>
                     </div>
@@ -52,19 +52,23 @@
                             <li>
                                 <div class="info">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <p class="in-p">95 South Park Ave, USA</p>
+                                    <p class="in-p">г. Белгород, пр. Славы, 39</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <p class="in-p">+456 875 369 208</p>
+                                    <p class="in-p">
+                                        +7 (4722) 32-73-13
+                                        <br/>
+                                        +7 (4722) 32-76-57
+                                    </p>
                                 </div>
                             </li>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <p class="in-p ti">support@findhouses.com</p>
+                                    <p class="in-p ti">instroybel@mail.ru</p>
                                 </div>
                             </li>
                         </ul>

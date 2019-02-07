@@ -76,13 +76,13 @@
                     @endforeach
                     <!-- STAR COLLAPSE MOBILE MENU -->
                     <li class="hidden-lg-up">
-                        <a href="#blog" aria-expanded="false">Новости</a>
+                        <a href="{{ route('news-list') }}" aria-expanded="false">Новости</a>
                     </li>
                     <!-- END COLLAPSE MOBILE MENU -->
                     <li class="hidden-md-down">
-                        <a aria-haspopup="true" aria-expanded="false" href="#">Новости</a>
+                        <a aria-haspopup="true" aria-expanded="false" href="{{ route('news-list') }}">Новости</a>
                     </li>
-                    <li><a href="contact-us.html">Компания</a></li>
+                    <li><a href="{{ route('about-us') }}">Компания</a></li>
                 </ul>
             </nav>
         </div>

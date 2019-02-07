@@ -29,7 +29,7 @@ class AjaxController extends Controller
     public function getJsonDataMap(Request $request)
     {
         if ($request->ajax()) {
-            return Land::getLandsForMap();
+            return Land::getLandsForMap($request->region_id);
         } else {
             return abort(404);
         }

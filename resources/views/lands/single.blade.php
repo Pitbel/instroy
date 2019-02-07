@@ -4,7 +4,7 @@
         <div class="text-heading text-center">
             <div class="container">
                 <h1>{{ $land->name }}</h1>
-                <h2><a href="index.html">Home </a> &nbsp;/&nbsp; Property Details</h2>
+                <h2><a href="/">Главная </a> &nbsp;/&nbsp; {{ $land->name }}</h2>
             </div>
         </div>
     </section>
@@ -99,33 +99,19 @@
                     <div class="widget">
                         <div class="recent-post py-5">
                             <h5 class="font-weight-bold mb-4">Похожие участки</h5>
-                            <div class="recent-main">
+                            @foreach($similarLands as $sland)
+                            <div class="recent-main mb-4">
                                 <div class="recent-img">
-                                    <a href="blog-details.html"><img src="{{ asset('images/feature-properties/fp-1.jpg') }}" alt=""></a>
+                                    <a href="{{ route('single-land', $sland->id) }}">
+                                        <img src="{{ isset($sland->images[0]) ? asset($sland->images[0]->img_link) : asset('images/lands/placeholder.jpg') }}" alt="{{ $sland->name }}">
+                                    </a>
                                 </div>
                                 <div class="info-img">
-                                    <a href="blog-details.html"><h6>Family Home</h6></a>
-                                    <p>$230,000</p>
+                                    <a href="{{ route('single-land', $sland->id) }}"><h6>{{ $sland->name }}</h6></a>
+                                    <p>{{ number_format($sland->price, 0, '', ' ') }} <i class="fa fa-ruble"></i></p>
                                 </div>
                             </div>
-                            <div class="recent-main my-4">
-                                <div class="recent-img">
-                                    <a href="blog-details.html"><img src="{{ asset('images/feature-properties/fp-2.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="info-img">
-                                    <a href="blog-details.html"><h6>Family Home</h6></a>
-                                    <p>$230,000</p>
-                                </div>
-                            </div>
-                            <div class="recent-main">
-                                <div class="recent-img">
-                                    <a href="blog-details.html"><img src="{{ asset('images/feature-properties/fp-3.jpg') }}" alt=""></a>
-                                </div>
-                                <div class="info-img">
-                                    <a href="blog-details.html"><h6>Family Home</h6></a>
-                                    <p>$230,000</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </aside>
@@ -133,4 +119,33 @@
         </div>
     </section>
     <!-- END SECTION PROPERTIES LISTING -->
+@endsection
+@section('script')
+    <script>
+        if ($('#map-contact').length) {
+            var map = L.map('map-contact', {
+                zoom: 12,
+                maxZoom: 20,
+                tap: false,
+                gestureHandling: true,
+                center:  <?php echo json_encode(explode(',', $land->geo_location));?>
+            });
+
+            var Hydda_Full = L.tileLayer('http://tiles.maps.sputnik.ru/{z}/{x}/{y}.png', {
+                scrollWheelZoom: false,
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var icon = L.divIcon({
+                html: '<i class="fa fa-building"></i>',
+                iconSize: [50, 50],
+                iconAnchor: [50, 50],
+                popupAnchor: [-20, -42]
+            });
+
+            var marker = L.marker(<?php echo json_encode(explode(',', $land->geo_location));?>, {
+                icon: icon
+            }).addTo(map);
+        }
+    </script>
 @endsection

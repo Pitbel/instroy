@@ -44,6 +44,7 @@
 
                                     <div class="col-xs-3 text-right">
                                         <a href="{{ route('admin-land-edit', $land->id) }}" class="btn btn-sm btn-success btn-icon"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{ route('admin-land-delete', $land->id) }}" class="btn btn-sm btn-danger btn-icon"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </div>
                                 <small>Дата создания: {{ ($land->created_at->diff(now())->days < 1) ? $land->created_at->diffForHumans() : $land->created_at->format('d.m.Y') }}</small>
@@ -55,6 +56,8 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
     @if(Session::has('success'))
         <script>
             $.notify({

@@ -6,7 +6,7 @@
         <div class="col-lg-10 col-md-10">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Редактирование участка</h4>
+                    <h4 class="title">@if(isset($land)) Редактирование @else Добавление @endif участка</h4>
                 </div>
                 <div class="content">
                     <form method="post" action="{{ (isset($land)) ? route('admin-upd-land', $land->id) : route('admin-land-create')}}" enctype="multipart/form-data">
@@ -118,7 +118,7 @@
                                 <div class="form-group">
                                     <label>{{ isset($land) ? 'Обновить' : 'Добавить' }} изображения</label>
                                     <div class='file-input'>
-                                        <input required type='file' id="filesToUpload" name="images[]" multiple>
+                                        <input @if(!isset($land)) required  @endif type='file' id="filesToUpload" name="images[]" multiple>
                                         <span class='button'>Выбрать файлы</span>
                                         <label class='data-js-label-label'>Файл не выбран</label>
                                     </div>
@@ -181,7 +181,7 @@
             center: [geo[0], geo[1]]
         });
 
-        var Hydda_Full = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+        var Hydda_Full = L.tileLayer('http://tiles.maps.sputnik.ru/{z}/{x}/{y}.png', {
             scrollWheelZoom: false,
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);

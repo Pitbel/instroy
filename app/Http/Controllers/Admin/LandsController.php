@@ -156,6 +156,8 @@ class LandsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Land::destroy($id);
+
+        return redirect()->back()->with('success', 'Участок был успешно удален');
     }
 }

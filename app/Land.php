@@ -4,6 +4,8 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class Land extends Model
 {
@@ -40,13 +42,19 @@ class Land extends Model
 
     /**
      * Get json list of land for main map
+     *
+     * @param null $regionId
+     * @return array
      */
-    public static function getLandsForMap()
+    public static function getLandsForMap($regionId = null)
     {
-        $lands = self::where('geo_location', '!=', null)
-            ->select('id', 'geo_location', 'name', 'address', 'price')
-            ->orderBy('created_at', 'desc')
-            ->get();
+        if (!is_null($regionId)) {
+            $lands = DB::select("SELECT * FROM lands WHERE locality_id IN (SELECT id FROM land_localities WHERE region_id = " . $regionId . ") AND geo_location IS NOT NULL ORDER BY created_at DESC");
+        } else {
+            $lands = DB::select("SELECT * FROM lands WHERE geo_location IS NOT NULL ORDER BY created_at DESC");
+        }
+
+        $dataArray = [];
 
         foreach($lands as $land) {
             $dataArray[] = [

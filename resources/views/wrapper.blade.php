@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="html 5 template">
-    <meta name="author" content="">
+    <meta name="description" content="{!! Meta::get('description') !!}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Недвижимость в Белгороде - земельные участки, усадьбы, поместья, продажа земли в Белгороде и Белгородской области</title>
+
+    <title>{!! Meta::get('title') !!}</title>
+
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
@@ -82,7 +84,6 @@
 <script src="{{ asset('js/leaflet-gesture-handling.min.js') }}"></script>
 <script src="{{ asset('js/leaflet-providers.js') }}"></script>
 <script src="{{ asset('js/leaflet.markercluster.js') }}"></script>
-<script src="{{ asset('js/map-single.js') }}"></script>
 <script src="{{ asset('js/color-switcher.js') }}"></script>
 
 @yield('script')

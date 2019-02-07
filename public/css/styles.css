@@ -1146,7 +1146,7 @@ section.recently.portfolio {
 
 .homes-tag.featured {
   width: 84px !important;
-  background: #18ba60 !important;
+  background: #1ABC9C !important;
 }
 
 .recently .homes .button {
@@ -2098,7 +2098,7 @@ section.portfolio {
 
 .homes-tag.featured {
   width: 120px !important;
-  background: #18ba60 !important;
+  background: #18ad8f !important;
 }
 
 .portfolio .homes .button {
@@ -2521,7 +2521,7 @@ section.portfolio {
 }
 
 .btn.btn-outline-light {
-  background-color: #fa2964;
+  background-color: #1abc9c;
   color: #fff;
   border-color: #fff;
   font-size: 16px;
@@ -4182,6 +4182,9 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: .6rem;
   color: #fff;
 }

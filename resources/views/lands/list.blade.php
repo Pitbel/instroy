@@ -4,7 +4,7 @@
         <div class="text-heading text-center">
             <div class="container">
                 <h1>Список всех участков</h1>
-                <h2><a href="index.html">Home </a> &nbsp;/&nbsp; List Right Sidebar</h2>
+                <h2><a href="/">Главная </a> &nbsp;/&nbsp; Список всех участков</h2>
             </div>
         </div>
     </section>

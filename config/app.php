@@ -179,6 +179,7 @@ return [
          * Own Service Providers
          */
         Intervention\Image\ImageServiceProvider::class,
+        Eusonlito\LaravelMeta\MetaServiceProvider::class,
 
     ],
 
@@ -228,8 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class
-
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Meta'    => Eusonlito\LaravelMeta\Facade::class,
     ],
 
 ];
