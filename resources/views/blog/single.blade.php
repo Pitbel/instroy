@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="blog-info">
                                     <h3 class="mb-2 title">{{ $news->title }}</h3>
-                                    <p>{{ $news->full_text }}</p>
+                                    <p>{!! $news->full_text !!}</p>
                                 </div>
                             </div>
                         </div>

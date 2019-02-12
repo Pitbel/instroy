@@ -35,6 +35,17 @@
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('admin/assets/css/themify-icons.css') }}" rel="stylesheet">
 
+    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector:'textarea',
+            plugins: 'print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+            toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+            image_advtab: true,
+            language_url : '/tinymce/lang/ru.js',
+            language: 'ru',
+        });
+    </script>
 </head>
 <body>
 

@@ -39,7 +39,7 @@
                         </div>
                         <div class="blog-info">
                             <a href="blog-details.html"><h3 class="mb-2">{{ $new->title }}</h3></a>
-                            <p>{{ $new->short_text }}</p>
+                            <p>{!! $new->short_text !!}</p>
                             <a href="{{ route('news-single', $new->id) }}" class="btn btn-secondary">Подробнее...</a>
                         </div>
                     </div>

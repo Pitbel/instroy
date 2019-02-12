@@ -65,7 +65,7 @@ class Land extends Model
                 'title'=> $land->name,
                 'desc'=> $land->address,
                 'price'=> number_format($land->price, 0, '', ' ') . '₽',
-                'image'=> $land->images[0]->img_link ?? '',
+                'image'=> LandImages::where('land_id', $land->id)->first()->img_link ?? '',
             ];
         }
 

@@ -21,7 +21,7 @@
                                 <span class="date">{{ ($item->created_at->diff(now())->days < 1) ? $item->created_at->diffForHumans() : $item->created_at->format('d.m.Y') }}</span>
                             </div>
                             <div class="news-item-descr big-news">
-                                <p>{{ $item->short_text }}</p>
+                                <p>{!! $item->short_text !!}</p>
                             </div>
                             <div class="news-item-bottom">
                                 <a href="{{ route('news-single', $item->id) }}" class="news-link">Подробнее...</a>

@@ -40,7 +40,7 @@
                         <p class="homes-address mb-3">
                             <i class="fa fa-map-marker"></i><span> {{ $land->address }}</span>
                         </p>
-                        <p>{{ $land->short_description }}</p>
+                        <p>{!! $land->short_description !!}</p>
                         <!-- homes List -->
                         <ul class="homes-list clearfix">
                             <li data-placement="left" data-toggle="tooltip" title="Площадь">
