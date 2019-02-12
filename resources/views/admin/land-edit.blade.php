@@ -97,8 +97,8 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Адресс</label>
-                                    <input required name="address" type="text" class="form-control border-input" placeholder="Адресс" value="{{ $land->address ?? '' }}">
+                                    <label>Адрес</label>
+                                    <input required name="address" type="text" class="form-control border-input" placeholder="Адрес" value="{{ $land->address ?? '' }}">
                                 </div>
                             </div>
                         </div>

@@ -44,6 +44,11 @@
             image_advtab: true,
             language_url : '/tinymce/lang/ru.js',
             language: 'ru',
+            setup: function (editor) {
+                editor.on('change', function (e) {
+                    editor.save();
+                });
+            }
         });
     </script>
 </head>

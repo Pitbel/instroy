@@ -47,7 +47,7 @@ class LandsController extends Controller
 
         if ($request->hasFile('images')) {
             $this->validate($request, [
-                'photo'=>'image|mimes:jpeg,png,jpg,gif,svg|max:9048'
+                'photo'=>'image|mimes:jpeg,png,jpg|max:9048'
             ]);
 
             $images = $request->file('images');
@@ -58,12 +58,6 @@ class LandsController extends Controller
                 File::exists($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($path)
                     ->resize(698, 500)->save($path);
-
-                //add image to DB
-                LandImages::create([
-                    'land_id' => $newLand->id,
-                    'img_link' => 'images/lands/' . $newLand->id . '/' . $filename,
-                ]);
 
                 //add image to DB
                 LandImages::create([
