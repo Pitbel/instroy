@@ -1,7 +1,7 @@
 	if ($('#map-contact').length) {
 		var map = L.map('map-contact', {
 			zoom: 12,
-			maxZoom: 20,
+			maxZoom: 18,
 			tap: false,
 			gestureHandling: true,
 			center: [40.925372, -74.27654]

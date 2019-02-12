@@ -1,19 +1,22 @@
+var map;
+
 $(document).ready(function () {
     'use strict';
 
     if ($('#map-leaflet').length) {
-        var map = L.map('map-leaflet', {
+        map = L.map('map-leaflet', {
             zoom: 11,
-            maxZoom: 20,
-            tap: false,
+            maxZoom: 18,
+            tap: true,
             gestureHandling: true,
             center: [50.59, 36.58]
         });
 
         var marker_cluster = L.markerClusterGroup();
 
-        var OpenStreetMap_Mapnik = L.tileLayer('http://tiles.maps.sputnik.ru/{z}/{x}/{y}.png', {
+        var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
             scrollWheelZoom: false,
+            subdomains:['mt0','mt1','mt2','mt3'],
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
@@ -79,7 +82,7 @@ $(document).ready(function () {
 
                     marker.bindPopup(
                         '<div class="listing-window-image-wrapper">' +
-                        '<a href="/land/'+value.land_id+'">' +
+                        '<a href="/catalog/item/'+value.land_id+'/view">' +
                         '<div class="listing-window-image" style="background-image: url(' + value.image + ');"></div>' +
                         '<div class="listing-window-content">' +
                         '<div class="info">' +

@@ -166,23 +166,26 @@
 <script>
     if ($('#map-contact').length) {
         var geo = '<?php echo (isset($land)) ? $land->geo_location : false ?>';
+        var zoomSize = 11;
 
         if (geo === undefined || geo.length == 0) {
             geo = [50.59500687557325,36.586189270019524]; //Belgorod
         } else {
             geo = geo.split(',');
+            zoomSize = 16;
         }
 
         var map = L.map('map-contact', {
-            zoom: 12,
-            maxZoom: 20,
+            zoom: zoomSize,
+            maxZoom: 18,
             tap: false,
             gestureHandling: true,
             center: [geo[0], geo[1]]
         });
 
-        var Hydda_Full = L.tileLayer('http://tiles.maps.sputnik.ru/{z}/{x}/{y}.png', {
+        var Hydda_Full = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
             scrollWheelZoom: false,
+            subdomains:['mt0','mt1','mt2','mt3'],
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
