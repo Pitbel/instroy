@@ -208,3 +208,7 @@
 	margin:1em;
 	width: 250px;
 }
+
+.tox-notifications-container {
+	display: none !important;
+}
