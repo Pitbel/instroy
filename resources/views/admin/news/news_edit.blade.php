@@ -18,13 +18,23 @@
                                     <input required type="text" name="title" class="form-control border-input" placeholder="Название" value="{{ $news->title ?? old('title') }}">
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Категория</label>
+                                    <select name="category" class="form-control border-input">
+                                        @foreach(\App\NewsCategory::orderBy('name', 'asc')->get() as $category)
+                                        <option value="{{ $category->id }}" @if(isset($news) && $category->id == $news->category_id) selected @endif>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>{{ isset($news) ? 'Обновить' : 'Добавить' }} изображение</label>
                                     <div class='file-input'>
-                                        <input @if(!isset($news)) required @endif type='file' id="filesToUpload" name="img">
+                                        <input type='file' id="filesToUpload" name="img">
                                         <span class='button'>Выбрать файл</span>
                                         <label class='data-js-label-label'>Файл не выбран</label>
                                     </div>

@@ -40,6 +40,7 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $news = News::create([
+            'category_id'=> $request->category,
             'title' => $request->title,
             'short_text' => $request->short_text,
             'full_text' => $request->full_text,
@@ -130,6 +131,7 @@ class NewsController extends Controller
             }
 
             News::updateOrCreate(['id' => $id], [
+                'category_id' => $request->category,
                 'title' => $request->title,
                 'short_text' => $request->short_text,
                 'full_text' => $request->full_text,

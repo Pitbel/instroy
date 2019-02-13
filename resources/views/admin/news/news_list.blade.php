@@ -22,7 +22,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <h5><a href="{{ route('admin-news-edit', $item->id) }}">{{ $item->title }}</a></h5>
-                                            <p>{{ $item->short_text }}</p>
+                                            <p>{!! $item->short_text !!}</p>
                                         </div>
 
                                         <div class="col-xs-3 text-right">
@@ -31,6 +31,8 @@
                                         </div>
                                     </div>
                                     <small>Дата создания: {{ ($item->created_at->diff(now())->days < 1) ? $item->created_at->diffForHumans() : $item->created_at->format('d.m.Y') }}</small>
+                                    <br/>
+                                    <small>Категория: {{ $item->category->name }}</small>
                                 </li>
                             @endforeach
                         </ul>
