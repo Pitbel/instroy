@@ -7,9 +7,14 @@
                 <div class="card">
                     <div class="header with-button">
                         <h4 class="title">Список Новостей</h4>
+                        <div class="header-btn-block">
                         <a href="{{ route('admin-news-form-create') }}">
                             <button type="submit" class="btn btn-success btn-fill btn-wd">Добавить новость</button>
                         </a>
+                        <a href="{{ route('admin-news-category-list') }}">
+                            <button type="submit" class="btn btn-success btn-fill btn-wd">Категории новостей</button>
+                        </a>
+                        </div>
                     </div>
                     <hr/>
                     <div class="content">

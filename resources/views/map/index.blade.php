@@ -28,7 +28,7 @@
                             <!--/ End Form Lookin for -->
                             <!-- Form Location -->
                             <div class="form-group location height-set">
-                                <select class="wide" name="region">
+                                <select class="wide" name="locality">
                                     <option value="">Все районы</option>
                                     @foreach($regions as $region)
                                     <optgroup label="{{ $region->name }}" data-i="{{ $loop->iteration }}">

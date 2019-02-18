@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Land;
 use App\LandRegion;
+use App\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Meta;
@@ -23,9 +24,12 @@ class LandController extends Controller
 
         $similarLands = Land::getSimilarLandFromCategory(3);
 
+        #Local news
+        $localNews = News::getRecentNews(1, 3, $land->locality_id);
+
         Meta::set('title', $land->name . ' - Недвижимость в Белгороде');
 
-        return view('lands.single', compact('land', 'similarLands'));
+        return view('lands.single', compact('land', 'similarLands', 'localNews'));
     }
 
     public function show($slug, Request $request)
@@ -52,6 +56,7 @@ class LandController extends Controller
         $where = [];
 
         $region = (!is_null($request->region)) ? (int)$request->region : '' ;
+        $locality = (!is_null($request->locality)) ? (int)$request->locality : '' ;
         $type = (!is_null($request->type)) ? (int)$request->type : '' ;
         $query = (!is_null($request->q)) ? $request->q : '' ;
         $landCategory = (!is_null($request->land_category)) ? $request->land_category : '';
@@ -63,7 +68,10 @@ class LandController extends Controller
             $where['category_id'] = $catId;
 
         if (!empty($region))
-            $where['locality_id'] = $region;
+            $where['region_id'] = $region;
+
+        if (!empty($locality))
+            $where['locality_id'] = $locality;
 
         if (!empty($type))
             $where['type_id'] = $type;

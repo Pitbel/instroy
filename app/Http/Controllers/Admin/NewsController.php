@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\News;
+use App\NewsCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -41,6 +42,7 @@ class NewsController extends Controller
     {
         $news = News::create([
             'category_id'=> $request->category,
+            'locality_id' => $request->locality_id,
             'title' => $request->title,
             'short_text' => $request->short_text,
             'full_text' => $request->full_text,
@@ -132,6 +134,7 @@ class NewsController extends Controller
 
             News::updateOrCreate(['id' => $id], [
                 'category_id' => $request->category,
+                'locality_id' => $request->locality_id,
                 'title' => $request->title,
                 'short_text' => $request->short_text,
                 'full_text' => $request->full_text,
@@ -156,5 +159,71 @@ class NewsController extends Controller
         News::destroy($id);
 
         return redirect()->back()->with('success-news', 'Новость была успешно удалена');
+    }
+
+    /**
+     * Show list of news categories
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function categoryList()
+    {
+        $newsCat = NewsCategory::orderBy('name', 'asc')->get();
+
+        return view('admin.news.category.list', compact('newsCat'));
+    }
+
+    /**
+     * Show news create form
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function categoryCreate() {
+        return view('admin.news.category.edit');
+    }
+
+    public function categoryStore(Request $request)
+    {
+        NewsCategory::create($request->except('_token'));
+
+        return redirect('/admin/news/category/list')->with('success-news-category', 'Категория "' . $request->name . '" была успешно добавлена');
+    }
+
+    /**
+     * Show edit form for special category
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function categoryEdit($id) {
+        $category = NewsCategory::findOrFail($id);
+
+        return view('admin.news.category.edit', compact('category'));
+    }
+
+    /**
+     * Update new's category
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function categoryUpdate(Request $request, $id)
+    {
+        try {
+            NewsCategory::updateOrCreate(['id' => $id], $request->except('_token'));
+
+            return redirect('/admin/news/category/list')->with('success-news-category', 'Категория была успешно обновлена');
+        } catch (\Exception $e) {
+            Log::warning($e->getMessage());
+            return redirect()->back()->with('error', 'Произошла ошибка обновления категории');
+        }
+    }
+
+    public function categoryDestroy($id)
+    {
+        NewsCategory::destroy($id);
+
+        return redirect()->back()->with('success-news-category', 'Категория была успешно удалена');
     }
 }

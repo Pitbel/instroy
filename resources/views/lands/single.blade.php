@@ -24,6 +24,7 @@
                                 </span>
                                     <span class="hidden-sm-down local-address">{{ $land->locality->region->name }}, {{ $land->locality->name }}</span>
                                 </h4>
+                                <span class="hidden-sm-down address">{{ $land->address }}</span>
                             </div>
                             <div class="col-lg-4 col-md-4 col-8 cod-pad">
                                 <div class="sorting-options">
@@ -84,15 +85,15 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <div class="property-location mb-5">
+                                    <h5>Местонахождение на карте</h5>
+                                    <div class="divider-fade"></div>
+                                    <div id="map-contact" class="contact-map"></div>
+                                </div>
                                 <h5 class="mb-4">Общая Информация</h5>
                                 <p>{!! $land->description !!}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="property-location mb-5">
-                        <h5>Местонахождения</h5>
-                        <div class="divider-fade"></div>
-                        <div id="map-contact" class="contact-map"></div>
                     </div>
                 </div>
                 <aside class="col-lg-3 col-md-12 car">
@@ -113,6 +114,22 @@
                             </div>
                             @endforeach
                         </div>
+                        @if ( ! $localNews->isEmpty())
+                        <div class="recent-post">
+                            <h5 class="font-weight-bold mb-4">Местные новости</h5>
+                            @foreach($localNews as $news)
+                                <div class="recent-main mb-4">
+                                    <div class="recent-img">
+                                        <a href="{{ route('news-single', $news->id) }}"><img src="{{ $news->img  }}" alt=""></a>
+                                    </div>
+                                    <div class="info-img">
+                                        <a href="{{ route('news-single', $news->id) }}"><h6>{{ $news->title }}</h6></a>
+                                        <p style="color: #aaa">{{ $news->created_at->format('d.m.Y') }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        @endif
                     </div>
                 </aside>
             </div>
@@ -124,7 +141,7 @@
     <script>
         if ($('#map-contact').length) {
             var map = L.map('map-contact', {
-                zoom: 16,
+                zoom: 17,
                 maxZoom: 18,
                 tap: false,
                 gestureHandling: true,

@@ -21,7 +21,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::where('category_id', 1)->orderBy('created_at', 'desc')->paginate(9);
+        $news = News::getRecentNews(1, false, null, 9);
 
         return view('blog.list', compact('news'));
     }

@@ -94,6 +94,7 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <input type="hidden" value="{{ $land->locality->region->id }}" name="region_id">
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">

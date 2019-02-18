@@ -4072,6 +4072,12 @@ section.blog.details {
 .inner-pages .blog .block-heading .local-address {
 	font-size: 0.8em;
 }
+.inner-pages .blog .block-heading .address {
+	position: relative;
+	display: block;
+	margin-left: 4.2em;
+	top: -0.9em;
+}
 .inner-pages .blog .block-heading .sorting-options .fa.fa-ruble {
 	color: #1ABC9C;
 }
@@ -4163,7 +4169,7 @@ section.blog.details {
 .inner-pages .blog .sorting-options h6 {
 	color: #18ba60;
 	font-weight: bold;
-	margin-right: 3.2rem;
+	//margin-right: 3.2rem;
 }
 .inner-pages .blog .wprt-image-video.w50 {
 	margin-bottom: 5rem;

@@ -24,12 +24,12 @@ class IndexController extends Controller
         $regions = LandRegion::orderBy('name', 'ASC')->get();
 
         #latest news
-        $news = News::orderBy('created_at', 'DESC')->limit(3)->get();
+        $news =News::getRecentNews(1, 3);
 
-        $landCount['belgorod'] = Land::where('locality_id', 1)->count();
-        $landCount['shbk'] = Land::where('locality_id', 3)->count();
-        $landCount['stroitel'] = Land::where('locality_id', 5)->count();
-        $landCount['korocha'] = Land::where('locality_id', 6)->count();
+        $landCount['belgorod'] = Land::where('region_id', 1)->count();
+        $landCount['shbk'] = Land::where('region_id', 2)->count();
+        $landCount['stroitel'] = Land::where('region_id', 3)->count();
+        $landCount['korocha'] = Land::where('region_id', 4)->count();
 
         return view('index', compact('lands', 'regions', 'news', 'landCount'));
     }

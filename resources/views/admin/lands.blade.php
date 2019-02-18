@@ -20,7 +20,7 @@
                                     <div class="col-md-1">
                                         <a href="{{ route('admin-land-edit', $land->id) }}"><img src="{{ isset($land->images[0]) ? asset($land->images[0]->img_link) : asset('images/lands/placeholder.jpg') }}" alt="{{ $land->name }}" class="img-no-padding img-responsive"></a>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-9">
                                         <h5><a href="{{ route('admin-land-edit', $land->id) }}">{{ $land->name }} <span class="text-warning">({{ $land->type->name }})</span></a></h5>
                                         <ul class="lands-list-ul">
                                             <li data-placement="left" data-toggle="tooltip" title="Назначение земли">
@@ -42,7 +42,7 @@
                                         </ul>
                                     </div>
 
-                                    <div class="col-xs-3 text-right">
+                                    <div class="col-xs-2 text-right">
                                         <a href="{{ route('admin-land-edit', $land->id) }}" class="btn btn-sm btn-success btn-icon"><i class="fa fa-pencil"></i></a>
                                         <a href="{{ route('admin-land-delete', $land->id) }}" class="btn btn-sm btn-danger btn-icon"><i class="fa fa-trash"></i></a>
                                     </div>

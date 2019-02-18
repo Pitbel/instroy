@@ -28,6 +28,21 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Отображать только для населенного пункта</label>
+                                    <select name="locality_id" class="form-control border-input">
+                                        <option value="">Нет</option>
+                                        @foreach(\App\LandRegion::orderBy('name', 'ASC')->get() as $region)
+                                            <optgroup label="{{ $region->name }}" data-i="{{ $loop->iteration }}">
+                                                @foreach($region->localities as $locality)
+                                                    <option {{ (isset($news) && $news->locality_id == $locality->id) ? 'selected' : '' }} value="{{ $locality->id }}">{{ $locality->name }}</option>
+                                                @endforeach
+                                            </optgroup>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">

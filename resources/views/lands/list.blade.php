@@ -128,12 +128,12 @@
                             <div class="main-search-field">
                                 <h5 class="title">Фильтр</h5>
                                     <div class="at-col-default-mar">
-                                        <select name="region">
+                                        <select name="locality">
                                             <option value="">Все районы</option>
                                             @foreach($regions as $region)
                                                 <optgroup label="{{ $region->name }}" data-i="{{ $loop->iteration }}">
                                                     @foreach($region->localities as $locality)
-                                                        <option {{ ($request->has('region') && $request->region == $locality->id) ? 'selected' : '' }} value="{{ $locality->id }}">{{ $locality->name }}</option>
+                                                        <option {{ ($request->has('locality') && $request->locality == $locality->id) ? 'selected' : '' }} value="{{ $locality->id }}">{{ $locality->name }}</option>
                                                     @endforeach
                                                 </optgroup>
                                             @endforeach

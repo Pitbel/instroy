@@ -20,7 +20,7 @@
             </div>
             <div class="col-lg-8 col-md-6">
                 <!-- Image Box -->
-                <a href="/lands?region=3" class="img-box hover-effect">
+                <a href="/lands?region=2" class="img-box hover-effect">
                     <img src="{{ asset('images/popular-places/shebekino.jpg') }}" class="img-responsive" alt="">
                     <div class="img-box-content visible">
                         <h4>Шебекинский район</h4>
@@ -30,7 +30,7 @@
             </div>
             <div class="col-lg-8 col-md-6">
                 <!-- Image Box -->
-                <a href="/lands?region=5" class="img-box hover-effect no-mb">
+                <a href="/lands?region=3" class="img-box hover-effect no-mb">
                     <img src="{{ asset('images/popular-places/stroitel.jpg') }}" class="img-responsive" alt="">
                     <div class="img-box-content visible">
                         <h4>Яковлевский район</h4>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <!-- Image Box -->
-                <a href="/lands?region=6" class="img-box hover-effect no-mb x3">
+                <a href="/lands?region=4" class="img-box hover-effect no-mb x3">
                     <img src="{{ asset('images/popular-places/koro4a.jpg') }}" class="img-responsive" alt="">
                     <div class="img-box-content visible">
                         <h4>Корочанский район</h4>

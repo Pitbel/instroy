@@ -77,6 +77,20 @@ Route::middleware('auth')->prefix('admin')->group(function() {
     # Delete News
     Route::get('news/delete/{id}', 'Admin\NewsController@destroy')->name('admin-news-delete');
 
+    # Category News
+    Route::get('news/category/list', 'Admin\NewsController@categoryList')->name('admin-news-category-list');
+
+    # News Category Edit
+    Route::get('news/category/edit/{id}', 'Admin\NewsController@categoryEdit')->name('admin-news-category-edit');
+    Route::post('news/category/edit/{id}', 'Admin\NewsController@categoryUpdate')->name('admin-news-category-upd');
+
+    # Create category News
+    Route::get('news/category/create', 'Admin\NewsController@categoryCreate')->name('admin-news-category-create');
+    Route::post ('news/category/create', 'Admin\NewsController@categoryStore')->name('admin-news-category-store');
+
+    # Delete Category News
+    Route::get('news/category/delete/{id}', 'Admin\NewsController@categoryDestroy')->name('admin-news-category-delete');
+
     # Regions List
     Route::get('regions', 'Admin\RegionController@index');
 
@@ -104,7 +118,6 @@ Route::middleware('auth')->prefix('admin')->group(function() {
 
     # Delete Locality
     Route::get('locality/delete/{id}', 'Admin\LocalityController@destroy')->name('admin-locality-delete');
-
 
 });
 
