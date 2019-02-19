@@ -83,18 +83,18 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Местоположение</label>
-                                    <select required name="locality_id" class="form-control border-input">
+                                    <select @if(!isset($land)) id="locality_id" @endif required name="locality_id" class="form-control border-input">
                                         <option value="">Выберите местоположение</option>
                                         @foreach(\App\LandRegion::orderBy('name', 'asc')->get() as $region)
                                             <optgroup label="{{ $region->name }}" data-i="{{ $loop->iteration }}">
                                                 @foreach($region->localities as $locality)
-                                                    <option value="{{ $locality->id }}" @if(isset($land) && $locality->id == $land->locality->id) selected @endif>{{ $locality->name }}</option>
+                                                    <option value="{{ $locality->id }}" data-region="{{ $region->id }}" @if(isset($land) && $locality->id == $land->locality->id) selected @endif>{{ $locality->name }}</option>
                                                 @endforeach
                                             </optgroup>
                                         @endforeach
                                     </select>
                                 </div>
-                                <input type="hidden" value="{{ $land->locality->region->id }}" name="region_id">
+                                <input id="region_id" type="hidden" value="{{ isset($land) ? $land->locality->region->id : ''}}" name="region_id">
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">

@@ -13,3 +13,8 @@ $('.file-input').change(function() {
         list.append(text);
     }
 });
+
+$('#locality_id').change(function () {
+    val = $(this).find(':selected').attr('data-region');
+    $('#region_id').val(val);
+});
