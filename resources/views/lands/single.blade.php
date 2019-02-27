@@ -28,8 +28,8 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-8 cod-pad">
                                 <div class="sorting-options">
-                                    <h5><span>Цена:</span> {{ number_format($land->price, 0, '', ' ') }} <i class="fa fa-ruble"></i></h5>
-                                    <h6 class="type"><span>Тип:</span> {{ $land->type->name }}</h6>
+                                    <h5 class="single-price"><span>Цена:</span> {{ number_format($land->price, 0, '', ' ') }} <i class="fa fa-ruble"></i></h5>
+                                    <h6 class="type"><span>Площадь:</span> {{ $land->area }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                     <!-- Block heading end -->
                     <div class="row">
                         <div class="col-md-12 mb-4">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
                                {{-- <ol class="carousel-indicators">
                                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -48,7 +48,9 @@
                                     @if(!empty($land->images[0]->img_link))
                                         @foreach($land->images as $image)
                                         <div class="carousel-item {{ ($loop->iteration == 1) ? 'active' : '' }}">
-                                            <img class="d-block img-fluid" src="{{ asset($image->img_link) }}" alt="{{ $land->name }}">
+                                            <a href="{{ asset(str_replace('_thumb', '', $image->img_link)) }}" data-lightbox="1" style="width: 100%;">
+                                                <img class="d-block img-fluid" src="{{ asset($image->img_link) }}" alt="{{ $land->name }}">
+                                            </a>
                                         </div>
                                         @endforeach
                                     @else
@@ -91,7 +93,9 @@
                                     <div id="map-contact" class="contact-map"></div>
                                 </div>
                                 <h5 class="mb-4">Общая Информация</h5>
-                                <p>{!! $land->description !!}</p>
+                                <div class="single-description">
+                                <p >{!! $land->description !!}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -53,16 +53,18 @@ class LandsController extends Controller
             $images = $request->file('images');
 
             foreach ($images as $image) {
-                $filename = md5($image->getFileName() . 'instroy') . '.' . $image->getClientOriginalExtension();
-                $path = $image->move(base_path('public/images/lands/' . $newLand->id ), $filename);
+                $filename = md5($image->getFileName() . 'instroy');
+                $ext = '.' . $image->getClientOriginalExtension();
+
+                $path = $image->move(base_path('public/images/lands/' . $newLand->id ), $filename.$ext);
                 File::exists($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($path)
-                    ->resize(698, 500)->save($path);
+                    ->resize(825, 590)->save(base_path('public/images/lands/') . $newLand->id  . '/' . $filename . '_thumb' . $ext);
 
                 //add image to DB
                 LandImages::create([
                     'land_id' => $newLand->id,
-                    'img_link' => 'images/lands/' . $newLand->id . '/' . $filename,
+                    'img_link' => 'images/lands/' . $newLand->id . '/' . $filename . '_thumb' . $ext,
                 ]);
             }
         }
@@ -120,17 +122,18 @@ class LandsController extends Controller
                 File::deleteDirectory(public_path('images/lands/' . $id));
 
                 foreach ($images as $image) {
-                    $filename = md5($image->getFileName() . 'instroy') . '.' . $image->getClientOriginalExtension();
+                    $filename = md5($image->getFileName() . 'instroy');
+                    $ext = '.' . $image->getClientOriginalExtension();
 
-                    $path = $image->move(base_path('public/images/lands/' . $id ), $filename);
+                    $path = $image->move(base_path('public/images/lands/' . $id ), $filename.$ext);
                     File::exists($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($path)
-                        ->resize(698, 500)->save($path);
+                        ->resize(825, 590)->save(base_path('public/images/lands/') . $id . '/' . $filename . '_thumb' . $ext);
 
                     //add image to DB
                     LandImages::create([
                         'land_id' => $id,
-                        'img_link' => 'images/lands/' . $id . '/' . $filename,
+                        'img_link' => 'images/lands/' . $id . '/' . $filename . '_thumb' . $ext,
                     ]);
                 }
             }

@@ -39,6 +39,8 @@
     <link rel="stylesheet" href="{{ asset('css/maps.css') }}">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" id="color" href="{{ asset('css/colors/cyan.css') }}">
+
+    <link href="{{ asset('css/lightbox/lightbox.min.css') }}" rel="stylesheet">
 </head>
 
 <body class="inner-pages">
@@ -85,6 +87,7 @@
 <script src="{{ asset('js/leaflet-providers.js') }}"></script>
 <script src="{{ asset('js/leaflet.markercluster.js') }}"></script>
 <script src="{{ asset('js/color-switcher.js') }}"></script>
+<script src="{{ asset('js/lightbox/lightbox.min.js') }}"></script>
 
 @yield('script')
 

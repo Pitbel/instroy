@@ -2229,7 +2229,7 @@ section.portfolio {
 }
 
 .portfolio .homes-content h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #444;
   margin-bottom: 3px;
@@ -5190,6 +5190,10 @@ section.blog.details {
   text-transform: uppercase;
 }
 
+.inner-pages .blog .blog-info.details p span {
+  background-color: inherit;
+}
+
 .inner-pages .blog .blog-info.details {
   padding: 0;
   border-bottom: 0px;
@@ -5202,8 +5206,10 @@ section.blog.details {
 .inner-pages .blog .block-heading .address {
   position: relative;
   display: block;
-  margin-left: 4.2em;
+  margin-left: 3.1em;
   top: -0.9em;
+  font-size: 20px;
+  color: #404040;
 }
 
 .inner-pages .blog .block-heading .sorting-options .fa.fa-ruble {
@@ -5321,6 +5327,10 @@ section.blog.details {
   margin-top: 0px;
 }
 
+.inner-pages .blog .sorting-options h5.single-price {
+  font-size: 25px;
+}
+
 .inner-pages .blog .sorting-options h6 {
   color: #18ba60;
   font-weight: bold;
@@ -5363,6 +5373,11 @@ section.blog.details {
 .inner-pages .blog .homes-content.details span {
   font-size: 1rem;
   color: #000;
+}
+
+.single-description {
+  font-size: 18px;
+  font-weight: 400;
 }
 
 #map-contact {
@@ -8979,6 +8994,11 @@ textarea.border,
 .color-switcher.position .theme-colours {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /*-----------------------------------*/

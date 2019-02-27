@@ -50,7 +50,6 @@
                                             @foreach($land->images as $image)
                                                 <div class="button-effect">
                                                     <a href="{{ route('single-land', $land->id) }}" class="btn" title="Подробнее"><i class="fa fa-link"></i></a>
-                                                    <a href="https://www.youtube.com/watch?v=2xHQqYRcrx4" title="Просмотр видео" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
                                                     <a class="img-poppu btn" href="{{ asset($image->img_link) }}"
                                                        data-rel="lightcase:myCollection"
                                                        data-lc-categories="myCategory{{ $land->id }}"
@@ -60,7 +59,7 @@
                                             <div class="homes">
                                                 <!-- homes img -->
                                                 <div class="homes-tag button alt featured">{{ $land->category->name }}</div>
-                                                <div class="homes-tag button alt sale">{{ $land->type->name }}</div>
+                                                <div class="homes-tag button alt sale">{{ $land->area }}</div>
                                                 <div class="homes-price">{{ $land->locality->name }}</div>
                                                 <img src="{{ isset($land->images[0]) ? asset($land->images[0]->img_link) : asset('images/lands/placeholder.jpg') }}" alt="home-1" class="img-responsive">
                                             </div>
