@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{ asset('css/lightcase.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}?{{ $buildVersion }}">
     <link rel="stylesheet" href="{{ asset('css/maps.css') }}">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" id="color" href="{{ asset('css/colors/cyan.css') }}">
