@@ -563,7 +563,7 @@
 }
 
 #map-container .map-right-side #desc p span, #map-container .map-left-side #desc p span {
-    background: none;
+    background: none !important;
 }
 
 
