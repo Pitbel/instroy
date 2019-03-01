@@ -5,14 +5,14 @@ $(document).ready(function () {
 
     if ($('#map-leaflet').length) {
         map = L.map('map-leaflet', {
-            zoom: 11,
+            zoom: 10,
             maxZoom: 18,
             tap: true,
             gestureHandling: true,
             center: [50.59, 36.58]
         });
 
-        var marker_cluster = L.markerClusterGroup();
+        var marker_cluster = new L.FeatureGroup();
 
         var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
             scrollWheelZoom: false,
@@ -22,7 +22,6 @@ $(document).ready(function () {
 
         $.ajax('ajax/getJsonDataMainMap', {
             success: function (markers) {
-
                 $.each(markers, function (index, value) {
                     var icon = L.divIcon({
                         html: value.icon,
@@ -56,7 +55,6 @@ $(document).ready(function () {
                 map.addLayer(marker_cluster);
             }
         });
-
     }
 
     $('.map-filter').change(function() {
@@ -67,7 +65,6 @@ $(document).ready(function () {
             url: 'ajax/getJsonDataMainMap',
             data: {region_id: region_id},
             success: function (markers) {
-
                 $.each(markers, function (index, value) {
                     var icon = L.divIcon({
                         html: value.icon,

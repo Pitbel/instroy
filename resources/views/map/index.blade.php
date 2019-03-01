@@ -1,16 +1,19 @@
 <!-- STAR HEADER GOOGLE MAP -->
 <div id="map-container" class="fullwidth-home-map header-map google-maps pull-top map-leaflet-wrapper">
-    <div class="map-filter">
-        <select name="region">
-            <option value="">Все районы</option>
-            @foreach($regions as $region)
-                <option value="{{ $region->id }}">{{ $region->name }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div id="map-leaflet"></div>
-    <div id="hero-area" class="main-search-inner search-2">
+    <div class="map-left-side">
 
+    </div>
+    <div id="map-leaflet">
+        <div class="map-filter">
+            <select name="region">
+                <option value="">Все районы</option>
+                @foreach($regions as $region)
+                    <option value="{{ $region->id }}">{{ $region->name }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div id="hero-area" class="main-search-inner search-2">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -61,6 +64,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="map-right-side">
+
     </div>
 </div>
 <!-- END HEADER GOOGLE MAP -->
