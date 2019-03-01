@@ -547,15 +547,21 @@
 	margin-top: 0
 }
 #map-container .map-left-side {
-	background: red;
+	padding: .5em;
 	margin-right: auto;
 	width: 15%;
+    overflow: hidden;
 }
 #map-container .map-right-side {
-	background: red;
+	padding: .5em;
 	margin-left: auto;
 	width: 15%;
+    overflow: hidden;
 }
+#map-container .map-right-side #desc p, #map-container .map-left-side #desc p {
+    font-size: 13px;
+}
+
 .cluster img {
 	display: none
 }

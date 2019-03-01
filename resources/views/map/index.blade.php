@@ -1,7 +1,7 @@
 <!-- STAR HEADER GOOGLE MAP -->
 <div id="map-container" class="fullwidth-home-map header-map google-maps pull-top map-leaflet-wrapper">
     <div class="map-left-side">
-
+        @include('map.left_side')
     </div>
     <div id="map-leaflet">
         <div class="map-filter">
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div class="map-right-side">
-
+        @include('map.right_side')
     </div>
 </div>
 <!-- END HEADER GOOGLE MAP -->

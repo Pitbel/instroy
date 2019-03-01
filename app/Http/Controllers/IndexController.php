@@ -35,7 +35,11 @@ class IndexController extends Controller
         $landCount['stroitel'] = Land::where('region_id', 3)->count();
         $landCount['korocha'] = Land::where('region_id', 4)->count();
 
-        return view('index', compact('lands', 'regions', 'news', 'landCount', 'landsFirst', 'landsSecond', 'landsThird'));
+        #Map data
+        $leftSide = News::where('category_id', 1)->orderBy('created_at', 'DESC')->limit(5)->get();
+        $rightSide = Land::getLandsByStringDate('1 month', 4);
+
+        return view('index', compact('rightSide','leftSide', 'lands', 'regions', 'news', 'landCount', 'landsFirst', 'landsSecond', 'landsThird'));
     }
 
     public function aboutUsPage()

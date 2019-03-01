@@ -64,7 +64,7 @@ class NewsController extends Controller
             $path = $image->move(base_path('public/img/news/' . $news->id ), $filename);
             File::exists($path) or File::makeDirectory($path, 0777, true, true);
             Image::make($path)
-                ->resize(698, 500)->save($path);
+                ->resize(825, 590)->save($path);
 
             #upd path
             $path = '/img/news/' . $news->id . '/' . $filename;
@@ -124,7 +124,7 @@ class NewsController extends Controller
                 $path = $image->move(base_path('public/img/news/' . $id ), $filename);
                 File::exists($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($path)
-                    ->resize(698, 500)->save($path);
+                    ->resize(825, 590)->save($path);
 
                 #upd path
                 $path = '/img/news/' . $id . '/' . $filename;

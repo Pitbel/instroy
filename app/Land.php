@@ -100,7 +100,7 @@ class Land extends Model
      * @return mixed
      * @throws \Exception
      */
-    public static function getLandsByStringDate(string $stringDate = '1 month')
+    public static function getLandsByStringDate(string $stringDate = '1 month', $limit = 10)
     {
         $now = Carbon::now();
 
@@ -114,7 +114,10 @@ class Land extends Model
             throw new \ErrorException('Wrong date string format. Must be, for example: n days, n months, n years"');
         }
 
-        return self::where('created_at', '>=' ,$stringDate)->get();
+        return self::where('created_at', '>=' ,$stringDate)
+            ->orderBy('created_at', 'desc')
+            ->limit($limit)
+            ->get();
     }
 
     public static function getCategoryNameBySlug($slug)
