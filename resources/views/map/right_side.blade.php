@@ -1,11 +1,10 @@
 @foreach($rightSide as $land)
-    <div class="media">
+    <div class="media mt-2 align-items-center">
         <a href="/catalog/item/{{ $land->id }}/view">
-            <img width="64" class="img-thumbnail align-self-start mr-3" src="{{ (isset($land->images[0])) ? $land->images[0]->img_link : '' }}" alt="{{ $land->name }}">
+            <img width="64" class="img-thumbnail mr-3" src="{{ (isset($land->images[0])) ? $land->images[0]->img_link : '' }}" alt="{{ $land->name }}">
         </a>
         <div class="media-body">
-            <a href="/catalog/item/{{ $land->id }}/view"><h5 class="mt-0">{{ $land->name }}</h5></a>
-            <span id="desc">{!! $land->short_description !!}</span>
+            <a href="/catalog/item/{{ $land->id }}/view"><h5 style="font-size: 1em;" class="mt-0">{{ $land->name }}</h5></a>
         </div>
     </div>
 @endforeach

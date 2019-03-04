@@ -36,8 +36,8 @@ class IndexController extends Controller
         $landCount['korocha'] = Land::where('region_id', 4)->count();
 
         #Map data
-        $leftSide = News::where('category_id', 1)->orderBy('created_at', 'DESC')->limit(5)->get();
-        $rightSide = Land::getLandsByStringDate('1 month', 4);
+        $leftSide = News::where('category_id', 1)->orderBy('created_at', 'DESC')->limit(7)->get();
+        $rightSide = Land::getLandsByStringDate('1 month', 6);
 
         return view('index', compact('rightSide','leftSide', 'lands', 'regions', 'news', 'landCount', 'landsFirst', 'landsSecond', 'landsThird'));
     }
